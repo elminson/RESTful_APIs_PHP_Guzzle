@@ -9,11 +9,17 @@ use GuzzleHttp\Exception\RequestException;
 $client = new Client();
 
 $response = $client->request(
-    'GET',
+    'POST',
     'https://jsonplaceholder.typicode.com/posts',
     [
-        'query' => ['userId' => 1]
+        'json' => [
+            'title' => 'Elminson',
+            'body' => 'Text Body',
+            'userId' => 2
+            ]
     ]);
 
-var_dump($response);
+
 echo $response->getBody();
+echo $response->getStatusCode();
+
